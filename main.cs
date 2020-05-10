@@ -98,6 +98,28 @@ class GeradorFichaEmpresa{
 
 class GeradorFichaClinica{
 
+protected string localConsulta;
+protected string nomeEmpresa;
+
+public void SetlocalConsulta(string reclocalConsulta){
+    localConsulta = reclocalConsulta;
+  }
+  public string GetlocalConsulta(){
+    return localConsulta;
+  }
+
+public void SetnomeEmpresa(string recnomeEmpresa){
+    nomeEmpresa = recnomeEmpresa;
+  }
+  public string GetnomeEmpresa(){
+    return nomeEmpresa;
+  }
+
+public GeradorFichaClinica (){
+localConsulta = "Av. Valdopolis, 2000, Telefone: (27) 2000 - 2000, Aberto de Seg. a Sexta das 08:00 as 16:00."
+nomeEmpresa = "VinhosValdos";
+}
+
 }
 
 class MainClass {
