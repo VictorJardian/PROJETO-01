@@ -20,10 +20,7 @@ public bool Verificarlogin(string usu, int sen){
 
 }
 
-
 class CadastroFuncionario{
-
-//Variaveis
 
   protected string nomePessoa;
   protected int idade;
@@ -32,8 +29,6 @@ class CadastroFuncionario{
   protected string dataAdmissao;
   protected string setor;
   protected string funcao;
-
-//Sets e Gets
 
   public void SetnomePessoa(string recnomePessoa){
     nomePessoa = recnomePessoa;
@@ -60,11 +55,7 @@ class CadastroFuncionario{
 
 class CadastroExames{
 
-//Variaveis
-
 protected string nomeEXM;
-
-//Sets e Gets
 
 public void SetnomeEXM(string recnomeEXM){
     nomeEXM = recnomeEXM;
@@ -77,11 +68,7 @@ public void SetnomeEXM(string recnomeEXM){
 
 class CadastroFuncoes{
 
-//Variaveis
-
 protected string nomeFun;
-
-//Sets e Gets
 
 public void SetnomeFun(string recnomeFun){
     nomeFun = recnomeFun;
@@ -94,11 +81,7 @@ public void SetnomeFun(string recnomeFun){
 
 class CadastroSetores{
 
-//Variaveis
-
 protected string nomeSetores;
-
-//Sets e Gets++
 
 public void SetnomeSetores(string recnomeSetores){
     nomeSetores = recnomeSetores;
@@ -115,6 +98,28 @@ class GeradorFichaEmpresa{
 
 class GeradorFichaClinica{
 
+protected string localConsulta;
+protected string nomeEmpresa;
+
+public void SetlocalConsulta(string reclocalConsulta){
+    localConsulta = reclocalConsulta;
+  }
+  public string GetlocalConsulta(){
+    return localConsulta;
+  }
+
+public void SetnomeEmpresa(string recnomeEmpresa){
+    nomeEmpresa = recnomeEmpresa;
+  }
+  public string GetnomeEmpresa(){
+    return nomeEmpresa;
+  }
+
+public GeradorFichaClinica (){
+localConsulta = "Av. Valdopolis, 2000, Telefone: (27) 2000 - 2000, Aberto de Seg. a Sexta das 08:00 as 16:00."
+nomeEmpresa = "VinhosValdos";
+}
+
 }
 
 class MainClass {
@@ -128,9 +133,6 @@ class MainClass {
     usu = Console.ReadLine();
     sen = Convert.ToInt32(Console.ReadLine());
     log.Verificarlogin(usu, sen);
-
-
-
 
   }
 }
