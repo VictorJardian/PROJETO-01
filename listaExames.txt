@@ -1,0 +1,47 @@
+Exame clínico
+Hemograma 
+Grupo Sanguíneo
+Ácido Hipúrico
+Ácido Metil Hipúrico
+Ácido Mandélico
+Glicemia de Jejum
+E.P.F. (Fezes)
+E.A.S. (Urina)
+Carboxihemoglobina
+TGO / TGP / GGT
+ANTI HCV
+ANTI HBS
+HBSAG
+Colesterol Total
+HDL / LDL / VLDL
+ALA-U
+Uréia
+Creatinina
+Ácido Úrico
+Triglicerídeos
+VDRL
+Colinest. Plasmática
+Colinest. Eritrocitária
+PSA
+Manganês
+Cromo
+Ferro Serico
+Audiometria
+Optometria (Acuid.Visual)
+Prova de Equilíbrio 
+Logoaudiometria(Aúdio Vocal)
+Raio X Tórax 
+Raio X Coluna Lombar
+Raio X Coluna Cervical
+Rx Coluna Dorsal
+Raio X dos Joelhos
+Espirometria
+Eletroencefalograma (EEG)
+Eletrocardiograma (ECG)
+Avaliação Psicossocial
+Teste Ergométrico
+Aval  Psicológica
+Reticulocitos
+Tricompostos Totais
+Tricompostos Totais-(Urina)
+Oftalmológico

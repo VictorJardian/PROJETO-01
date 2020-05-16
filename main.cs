@@ -125,10 +125,19 @@ nomeEmpresa = "VinhosValdos";
 class MainClass {
   public static void Main (string[] args) {
     
+    string entrada;
     string usu;
     int sen;
 
+    FileStream arquivo = new FileStream("listaInfFuncionarios.txt", Filemode.Open,FileAccess.Read);
+
+    StreamReader lerArquivo = new StreamReader(arquivo, Encoding.UTF8);
+
+    entrada = lendo.ReadLine();
+    Console.WriteLine(entrada);
+
     Console.WriteLine ("Bem Vindo ao Programa de CPMSO, Digite seu login e senha.");
+
     Login log = new Login();
     usu = Console.ReadLine();
     sen = Convert.ToInt32(Console.ReadLine());
