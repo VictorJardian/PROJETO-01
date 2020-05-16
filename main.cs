@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Text;
 
 class Login{
 
@@ -8,87 +10,28 @@ protected int senha=1234;
 public bool Verificarlogin(string usu, int sen){
   if(usuario == usu && senha == sen)
   {
+    Console.Clear();
     Console.WriteLine("Úsuario e senha, corretos!");
     return true;
   }
   else
   {
+    Console.Clear();
     Console.WriteLine("Úsuario e senha, incorretos!");
     return false;
   }
 }
-
 }
 
-class CadastroFuncionario{
+class Interface{
 
-  protected string nomePessoa;
-  protected int idade;
-  protected int cpf;
-  protected string dataNascimento;
-  protected string dataAdmissao;
-  protected string setor;
-  protected string funcao;
+public void exibirOpcoes(){
 
-  public void SetnomePessoa(string recnomePessoa){
-    nomePessoa = recnomePessoa;
-  }
-  public string GetnomePessoa(){
-    return nomePessoa;
-  }
-
-  public void Setidade(int recidade){
-    idade = recidade;
-  }
-  public int Getidade(){
-    return idade;
-  }
-
-  public void Setcpf(int reccpf){
-    cpf = reccpf;
-  }
-  public int Getcpf(){
-    return cpf;
-  }
-
+Console.WriteLine("1- Gerar ficha medica da Empresa.");
+Console.WriteLine("2- Gerar ficha medica da Clinica.");
+Console.WriteLine("3- Visualizar lista de funcionarios.");
+Console.WriteLine("4- Sair.");
 }
-
-class CadastroExames{
-
-protected string nomeEXM;
-
-public void SetnomeEXM(string recnomeEXM){
-    nomeEXM = recnomeEXM;
-  }
-  public string GetnomeEXM(){
-    return nomeEXM;
-  }
-
-}
-
-class CadastroFuncoes{
-
-protected string nomeFun;
-
-public void SetnomeFun(string recnomeFun){
-    nomeFun = recnomeFun;
-  }
-  public string GetnomeFun(){
-    return nomeFun;
-  }
-
-}
-
-class CadastroSetores{
-
-protected string nomeSetores;
-
-public void SetnomeSetores(string recnomeSetores){
-    nomeSetores = recnomeSetores;
-  }
-  public string GetnomeSetores(){
-    return nomeSetores;
-  }
 
 }
 
@@ -116,7 +59,7 @@ public void SetnomeEmpresa(string recnomeEmpresa){
   }
 
 public GeradorFichaClinica (){
-localConsulta = "Av. Valdopolis, 2000, Telefone: (27) 2000 - 2000, Aberto de Seg. a Sexta das 08:00 as 16:00."
+localConsulta = "Av. Valdopolis, 2000, Telefone: (27) 2000 - 2000, Aberto de Seg. a Sexta das 08:00 as 16:00.";
 nomeEmpresa = "VinhosValdos";
 }
 
@@ -125,16 +68,10 @@ nomeEmpresa = "VinhosValdos";
 class MainClass {
   public static void Main (string[] args) {
     
-    string entrada;
+    int opcao;
+    string entradaArq;
     string usu;
     int sen;
-
-    FileStream arquivo = new FileStream("listaInfFuncionarios.txt", Filemode.Open,FileAccess.Read);
-
-    StreamReader lerArquivo = new StreamReader(arquivo, Encoding.UTF8);
-
-    entrada = lendo.ReadLine();
-    Console.WriteLine(entrada);
 
     Console.WriteLine ("Bem Vindo ao Programa de CPMSO, Digite seu login e senha.");
 
@@ -142,6 +79,41 @@ class MainClass {
     usu = Console.ReadLine();
     sen = Convert.ToInt32(Console.ReadLine());
     log.Verificarlogin(usu, sen);
+
+    Console.WriteLine ("");
+    Console.WriteLine ("Digite o numero da opção que deseja");
+    Console.WriteLine ("");
+
+    Interface inter = new Interface();
+    inter.exibirOpcoes();
+    opcao = Convert.ToInt32(Console.ReadLine());
+
+    if(opcao==1) //Gerar ficha medica da Empresa.
+    {
+      Console.Clear();
+    }
+
+    if(opcao==2) //Gerar ficha medica da Clinica.
+    {
+      Console.Clear(); 
+    }
+
+    if(opcao==3) //Visualizar lista de funcionarios.
+    {
+      Console.Clear();
+
+      FileStream arquivofuncionarios = new FileStream("listaInfFuncionarios.txt", FileMode.Open, FileAccess.Read);
+      StreamReader lendo = new StreamReader(arquivofuncionarios, Encoding.UTF8);
+      entradaArq = lendo.ReadLine();
+      Console.WriteLine (entradaArq);
+
+    }
+
+    if(opcao==4) //SAIR.
+    { 
+      Console.Clear();
+    }
+
 
   }
 }
