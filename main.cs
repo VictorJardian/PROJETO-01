@@ -1,102 +1,46 @@
 using System;
+using System.IO;
+using System.Text;
 
-class Login{
+class Interface{
 
-protected string usuario="vinhosvaldos";
-protected int senha=1234;
+public void exibirOpcoes(){
 
-public bool Verificarlogin(string usu, int sen){
-  if(usuario == usu && senha == sen)
-  {
-    Console.WriteLine("Úsuario e senha, corretos!");
-    return true;
-  }
-  else
-  {
-    Console.WriteLine("Úsuario e senha, incorretos!");
-    return false;
-  }
+Console.WriteLine("1- Gerar ficha medica da Empresa.");
+Console.WriteLine("2- Gerar ficha medica da Clinica.");
+Console.WriteLine("3- Visualizar lista de funcionarios.");
+Console.WriteLine("4- Trocar local e horario de funcionamento da clinica.");
+Console.WriteLine("5- Visualizar lista de Exames disponiveis.");
+Console.WriteLine("6- Visualizar lista de Funções disponiveis.");
+Console.WriteLine("7- Sair.");
 }
 
+public static void verlistaExames(){
+    string entradaArq;
+    FileStream arquivoExames = new FileStream("listaExames.txt", FileMode.Open, FileAccess.Read);
+    StreamReader lendoExames = new StreamReader(arquivoExames, Encoding.UTF8);
+    while(!lendoExames.EndOfStream)
+    {
+     entradaArq = lendoExames.ReadLine();
+     Console.WriteLine (entradaArq);
+    }
 }
 
-class CadastroFuncionario{
+public static void verlistaFuncoes(){
+    string entradaArq;
+    FileStream arquivoFuncoes = new FileStream("listaFuncoes.txt", FileMode.Open, FileAccess.Read);
+    StreamReader lendoFuncoes = new StreamReader(arquivoFuncoes, Encoding.UTF8);
+    while(!lendoFuncoes.EndOfStream)
+    {
+     entradaArq = lendoFuncoes.ReadLine();
+     Console.WriteLine (entradaArq);
+    }
+}
 
-  protected string nomePessoa;
-  protected int idade;
-  protected int cpf;
-  protected string dataNascimento;
-  protected string dataAdmissao;
-  protected string setor;
-  protected string funcao;
-
-  public void SetnomePessoa(string recnomePessoa){
-    nomePessoa = recnomePessoa;
-  }
-  public string GetnomePessoa(){
-    return nomePessoa;
-  }
-
-  public void Setidade(int recidade){
-    idade = recidade;
-  }
-  public int Getidade(){
-    return idade;
-  }
-
-  public void Setcpf(int reccpf){
-    cpf = reccpf;
-  }
-  public int Getcpf(){
-    return cpf;
-  }
 
 }
 
-class CadastroExames{
-
-protected string nomeEXM;
-
-public void SetnomeEXM(string recnomeEXM){
-    nomeEXM = recnomeEXM;
-  }
-  public string GetnomeEXM(){
-    return nomeEXM;
-  }
-
-}
-
-class CadastroFuncoes{
-
-protected string nomeFun;
-
-public void SetnomeFun(string recnomeFun){
-    nomeFun = recnomeFun;
-  }
-  public string GetnomeFun(){
-    return nomeFun;
-  }
-
-}
-
-class CadastroSetores{
-
-protected string nomeSetores;
-
-public void SetnomeSetores(string recnomeSetores){
-    nomeSetores = recnomeSetores;
-  }
-  public string GetnomeSetores(){
-    return nomeSetores;
-  }
-
-}
-
-class GeradorFichaEmpresa{
-
-}
-
-class GeradorFichaClinica{
+class GeradorFicha{
 
 protected string localConsulta;
 protected string nomeEmpresa;
@@ -108,16 +52,13 @@ public void SetlocalConsulta(string reclocalConsulta){
     return localConsulta;
   }
 
-public void SetnomeEmpresa(string recnomeEmpresa){
-    nomeEmpresa = recnomeEmpresa;
-  }
   public string GetnomeEmpresa(){
     return nomeEmpresa;
   }
 
-public GeradorFichaClinica (){
-localConsulta = "Av. Valdopolis, 2000, Telefone: (27) 2000 - 2000, Aberto de Seg. a Sexta das 08:00 as 16:00."
-nomeEmpresa = "VinhosValdos";
+public GeradorFicha(){
+localConsulta = "Av. Valdopolis, 2000, Telefone: (27) 2000 - 2000, Aberto de Seg. a Sexta das 08:00 as 16:00.";
+nomeEmpresa = "ValdosMetalurgia";
 }
 
 }
@@ -125,14 +66,81 @@ nomeEmpresa = "VinhosValdos";
 class MainClass {
   public static void Main (string[] args) {
     
-    string usu;
-    int sen;
+    int opcao;
+    string entradaArq;
+    string entrada;
 
-    Console.WriteLine ("Bem Vindo ao Programa de CPMSO, Digite seu login e senha.");
-    Login log = new Login();
-    usu = Console.ReadLine();
-    sen = Convert.ToInt32(Console.ReadLine());
-    log.Verificarlogin(usu, sen);
+    GeradorFicha gf = new GeradorFicha();
 
+    Console.WriteLine ("Bem Vindo ao Programa de CPMSO\n");
+    Console.WriteLine ("Digite o numero da opção que deseja\n");
+
+    Interface inter = new Interface();
+    inter.exibirOpcoes();
+    opcao = Convert.ToInt32(Console.ReadLine());
+
+    if(opcao==1) //Gerar ficha medica da Empresa.
+    {
+      Console.Clear();
+      Console.WriteLine ("Digite o nome do funcionario para Obter os dados.\n");
+      Console.WriteLine ("Digite o motivo da Consulta.\n");
+
+    }
+
+    if(opcao==2) //Gerar ficha medica da Clinica.
+    {
+      Console.Clear();
+      Console.WriteLine ("Digite o nome do funcionario para Obter os dados.\n");
+      Console.WriteLine ("Digite o motivo da Consulta.\n");
+      Console.WriteLine ("Empresa: {0}",gf.GetnomeEmpresa());
+      Console.WriteLine ("/n");
+      Console.WriteLine ("O local e horario de funcionamento da clinica são: \n");
+      Console.WriteLine (gf.GetlocalConsulta());
+      Console.WriteLine ("/n");
+      
+    }
+
+    if(opcao==3) //Visualizar lista de funcionarios.
+    {
+      Console.Clear();
+
+      FileStream arquivofuncionarios = new FileStream("listaInfFuncionarios.txt", FileMode.Open, FileAccess.Read);
+      StreamReader lendo = new StreamReader(arquivofuncionarios, Encoding.UTF8);
+      Console.WriteLine("|Nome       |Nascimento  |RG            |CPF            |Setor         |Função        |Ultimo ASO");
+      while(!lendo.EndOfStream)
+    {
+     entradaArq = lendo.ReadLine();
+     Console.WriteLine (entradaArq);
+    }
+
+    }
+
+     if(opcao==4) //Trocar local e horario de funcionamento da clinica..
+    { 
+      Console.Clear();
+      Console.WriteLine ("O novo local e horario de funcionamento da clinica é:");
+      gf.SetlocalConsulta(Console.ReadLine());
+      Console.WriteLine ("/n");
+      Console.WriteLine ("Você trocou o local e horario para:\n");
+      Console.WriteLine (gf.GetlocalConsulta());
+    }
+
+    if(opcao==5) //
+    { 
+      Console.Clear();
+      Interface.verlistaExames();
+    }
+
+    if(opcao==6) //
+    { 
+      Console.Clear();
+      Interface.verlistaFuncoes();
+    }
+
+
+    if(opcao==7) //SAIR.
+    { 
+      Console.Clear();
+    }
   }
 }
