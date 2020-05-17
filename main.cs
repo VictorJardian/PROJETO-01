@@ -68,6 +68,7 @@ class MainClass {
     
     int opcao;
     string entradaArq;
+    string entrada;
 
     GeradorFicha gf = new GeradorFicha();
 
@@ -82,21 +83,20 @@ class MainClass {
     {
       Console.Clear();
       Console.WriteLine ("Digite o nome do funcionario para Obter os dados.\n");
-      Console.WriteLine ("Digite o motivo da Consula.\n");
+      Console.WriteLine ("Digite o motivo da Consulta.\n");
 
     }
 
     if(opcao==2) //Gerar ficha medica da Clinica.
     {
       Console.Clear();
-      Console.WriteLine ("Digite o nome do funcionario para Obter os dados.");
-
-      Console.WriteLine ("Digite o motivo da Consula.\n");
+      Console.WriteLine ("Digite o nome do funcionario para Obter os dados.\n");
+      Console.WriteLine ("Digite o motivo da Consulta.\n");
       Console.WriteLine ("Empresa: {0}",gf.GetnomeEmpresa());
-      Console.WriteLine ("");
+      Console.WriteLine ("/n");
       Console.WriteLine ("O local e horario de funcionamento da clinica são: \n");
       Console.WriteLine (gf.GetlocalConsulta());
-      Console.WriteLine ("");
+      Console.WriteLine ("/n");
       
     }
 
@@ -120,7 +120,7 @@ class MainClass {
       Console.Clear();
       Console.WriteLine ("O novo local e horario de funcionamento da clinica é:");
       gf.SetlocalConsulta(Console.ReadLine());
-      Console.WriteLine ("");
+      Console.WriteLine ("/n");
       Console.WriteLine ("Você trocou o local e horario para:\n");
       Console.WriteLine (gf.GetlocalConsulta());
     }
